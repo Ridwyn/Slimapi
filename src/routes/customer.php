@@ -52,7 +52,7 @@ $app->get('/api/customer/{id}', function(Request $request, Response $response) {
         $db =$db->connect();
 
         $stmt = $db->query($sql);
-        $customer = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $customer = $stmt->fetch(PDO::FETCH_OBJ);
         $db =null;
         echo json_encode($customer);
     } catch(PDOException $e){
